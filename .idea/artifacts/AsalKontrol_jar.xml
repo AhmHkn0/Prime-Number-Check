@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AsalKontrol:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="AsalKontrol.jar">
+      <element id="module-output" name="AsalKontrol" />
+    </root>
+  </artifact>
+</component>

@@ -19,6 +19,8 @@ public class AsalKontrol {
         }
         if (sayi > 1) {
             if (String.valueOf(sayi).length() < 10) {
+                if (String.valueOf(sayi).length() > 5)
+                    Wait();
                 for (int i = 2; i < sayi - 1; i++) {
                     kontrol = (float) sayi / i;
                     String[] nokta = String.valueOf(kontrol).split("\\.");
@@ -33,9 +35,9 @@ public class AsalKontrol {
             Cikis("You can only check numbers greater than 1.");
         }
         if (bolunensayilar.isEmpty()) {
-            Cikis((int) sayi+" is a prime number.");
+            Cikis("\n"+(int) sayi+" is a prime number.");
         } else {
-            Cikis((int) sayi+" is not prime number.\nAll the factors of "+(int) sayi+": \n"+bolunensayilar);
+            Cikis("\n"+(int) sayi+" is not prime number.\nAll the factors of "+(int) sayi+": \n"+bolunensayilar);
         }
     }
 
@@ -44,4 +46,9 @@ public class AsalKontrol {
             System.out.println(mesaj);
         Prime();
     }
+
+    public static void Wait() {
+        System.out.println("\nProcessing...\nJust a moment! Checking number too large.");
+    }
+
 }

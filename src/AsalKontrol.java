@@ -14,20 +14,34 @@ public class AsalKontrol {
         System.out.println("\n"+"Enter a number.");
         long sayi = veri.nextLong();
         float kontrol;
-        if (sayi <= 1)
-            return;
-        for (int i = 2; i < sayi - 1; i++) {
-            kontrol = (float) sayi / i;
-            String[] nokta = String.valueOf(kontrol).split("\\.");
-            if (nokta[1].equalsIgnoreCase("0")) {
-                bolunensayilar.add(i);
+        if (sayi <= 0) {
+            Cikis("You can only check positive numbers.");
+        }
+        if (sayi > 1) {
+            if (String.valueOf(sayi).length() < 10) {
+                for (int i = 2; i < sayi - 1; i++) {
+                    kontrol = (float) sayi / i;
+                    String[] nokta = String.valueOf(kontrol).split("\\.");
+                    if (nokta[1].equalsIgnoreCase("0")) {
+                        bolunensayilar.add(i);
+                    }
+                }
+            } else {
+                Cikis("You can check numbers up to 9 digits.");
             }
+        } else {
+            Cikis("You can only check numbers greater than 1.");
         }
         if (bolunensayilar.isEmpty()) {
-            System.out.println((int) sayi+" is a prime number.");
+            Cikis((int) sayi+" is a prime number.");
         } else {
-            System.out.println((int) sayi+" is not prime number.\nDivisible by: \n"+bolunensayilar);
+            Cikis((int) sayi+" is not prime number.\nAll the factors of "+(int) sayi+": \n"+bolunensayilar);
         }
+    }
+
+    public static void Cikis(String mesaj) {
+        if (mesaj != null)
+            System.out.println(mesaj);
         Prime();
     }
 }
